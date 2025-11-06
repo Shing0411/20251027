@@ -26,6 +26,8 @@ let menuState = 'hidden';
 // 網址定義
 const WORK_URL = "https://shing0411.github.io/20251020/";
 const NOTES_URL = "https://hackmd.io/@CSw-vFZYRyGNjY9NVa6a0w/B1-BLm0oxx";
+// 新增 測驗區筆記 連結
+const QUIZ_NOTES_URL = "https://hackmd.io/@CSw-vFZYRyGNjY9NVa6a0w/rk81ZQ9Jbl";
 
 // Iframe 尺寸設定 (使用您設定的 70%)
 const IFRAME_SIZE = '70%'; 
@@ -118,6 +120,7 @@ function setup() {
     // 創建選單項目並添加點擊事件
     createMenuItem('第一單元作品', WORK_URL, 'work');
     createMenuItem('第一單元講義', NOTES_URL, 'notes');
+    createMenuItem('測驗區筆記', QUIZ_NOTES_URL, 'quizNotes'); // 新增
     createMenuItem('測驗區', '', 'quiz'); 
     createMenuItem('回到首頁', '', 'home'); 
 }
@@ -177,6 +180,13 @@ function handleMenuClick(action, url) {
         
     } else if (action === 'home') {
         hideIframe();
+        
+    } else if (action === 'quizNotes') {
+        // 測驗區筆記（HackMD）
+        iframe.src = url;
+        iframeDiv.style('display', 'block');
+        menuState = 'hidden';
+        sidebarDiv.style('transform', `translateX(-${MENU_WIDTH}px)`);
         
     } else if (action === 'quiz') {
         iframe.src = 'https://shing0411.github.io/20251106-1/';
