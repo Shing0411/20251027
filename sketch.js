@@ -179,7 +179,10 @@ function handleMenuClick(action, url) {
         hideIframe();
         
     } else if (action === 'quiz') {
-        alert('測驗區功能尚未啟用。');
+        iframe.src = 'https://shing0411.github.io/20251106-1/';
+        iframeDiv.style('display', 'block');
+        menuState = 'hidden';
+        sidebarDiv.style('transform', `translateX(-${MENU_WIDTH}px)`);
     }
 }
 
